@@ -101,9 +101,9 @@
     NSString *fractionalPipOneDigit = [fractionalPip substringToIndex:1];
     
     NSString *highlightedValue=[[[sellValue componentsSeparatedByString:@"."] firstObject] substringFromIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length]-2];
+    ;
     
-    NSString *sellFractionValue = [[[sellValue componentsSeparatedByString:@"."] firstObject]  substringToIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length] - 2];
-    cell.sellRateLAbel.text = sellFractionValue;
+    cell.sellRateLAbel.text = [NSString stringWithFormat:@"%.2f",[[[data valueForKey:@"sell"] objectAtIndex:indexPath.row]floatValue]];
     cell.sellFractionalPipLabel.text =fractionalPipOneDigit;
     NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
     cell.sellHighlightPipLabel.attributedText =[[NSAttributedString alloc] initWithString:highlightedValue attributes:underlineAttribute];
@@ -126,8 +126,7 @@
     
     NSString *buyhighlightedValue=[[[buyValue componentsSeparatedByString:@"."] firstObject] substringFromIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length]-2];
     
-    NSString *buyFractionValue = [[[buyValue componentsSeparatedByString:@"."] firstObject]  substringToIndex:[[[buyValue componentsSeparatedByString:@"."] firstObject]  length] - 2];
-    cell.buyRateLabel.text = buyFractionValue;
+    cell.buyRateLabel.text = [NSString stringWithFormat:@"%.2f",[[[data valueForKey:@"buy"] objectAtIndex:indexPath.row]floatValue]];;
     cell.buyFractionalPip.text =buyfractionalPipOneDigit;
     NSDictionary *buyunderlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
     cell.buyHighlightPipLabel.attributedText = [[NSAttributedString alloc] initWithString:buyhighlightedValue attributes:buyunderlineAttribute];
