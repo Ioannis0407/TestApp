@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D70104E41E02B8030056EAD8 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D70104E31E02B8030056EAD8 /* WebServices.m */; };
+		D70104E91E02ED920056EAD8 /* SignalsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D70104E71E02ED920056EAD8 /* SignalsTableViewCell.m */; };
+		D70104EA1E02ED920056EAD8 /* SignalsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D70104E81E02ED920056EAD8 /* SignalsTableViewCell.xib */; };
 		D7CCEEC11E02B01300F188E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CCEEC01E02B01300F188E0 /* main.m */; };
 		D7CCEEC41E02B01300F188E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CCEEC31E02B01300F188E0 /* AppDelegate.m */; };
 		D7CCEEC71E02B01300F188E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CCEEC61E02B01300F188E0 /* ViewController.m */; };
@@ -36,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D70104E21E02B8030056EAD8 /* WebServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServices.h; sourceTree = "<group>"; };
+		D70104E31E02B8030056EAD8 /* WebServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServices.m; sourceTree = "<group>"; };
+		D70104E51E02B8610056EAD8 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		D70104E61E02ED920056EAD8 /* SignalsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalsTableViewCell.h; sourceTree = "<group>"; };
+		D70104E71E02ED920056EAD8 /* SignalsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalsTableViewCell.m; sourceTree = "<group>"; };
+		D70104E81E02ED920056EAD8 /* SignalsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignalsTableViewCell.xib; sourceTree = "<group>"; };
 		D7CCEEBC1E02B01300F188E0 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CCEEC01E02B01300F188E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7CCEEC21E02B01300F188E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +117,12 @@
 				D7CCEEC51E02B01300F188E0 /* ViewController.h */,
 				D7CCEEC61E02B01300F188E0 /* ViewController.m */,
 				D7CCEEC81E02B01300F188E0 /* Main.storyboard */,
+				D70104E61E02ED920056EAD8 /* SignalsTableViewCell.h */,
+				D70104E71E02ED920056EAD8 /* SignalsTableViewCell.m */,
+				D70104E81E02ED920056EAD8 /* SignalsTableViewCell.xib */,
+				D70104E21E02B8030056EAD8 /* WebServices.h */,
+				D70104E31E02B8030056EAD8 /* WebServices.m */,
+				D70104E51E02B8610056EAD8 /* Settings.h */,
 				D7CCEECE1E02B01300F188E0 /* Assets.xcassets */,
 				D7CCEED01E02B01300F188E0 /* LaunchScreen.storyboard */,
 				D7CCEED31E02B01300F188E0 /* Info.plist */,
@@ -253,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7CCEED21E02B01300F188E0 /* LaunchScreen.storyboard in Resources */,
+				D70104EA1E02ED920056EAD8 /* SignalsTableViewCell.xib in Resources */,
 				D7CCEECF1E02B01300F188E0 /* Assets.xcassets in Resources */,
 				D7CCEECA1E02B01300F188E0 /* Main.storyboard in Resources */,
 			);
@@ -280,9 +296,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7CCEEC71E02B01300F188E0 /* ViewController.m in Sources */,
+				D70104E41E02B8030056EAD8 /* WebServices.m in Sources */,
 				D7CCEECD1E02B01300F188E0 /* TestApp.xcdatamodeld in Sources */,
 				D7CCEEC41E02B01300F188E0 /* AppDelegate.m in Sources */,
 				D7CCEEC11E02B01300F188E0 /* main.m in Sources */,
+				D70104E91E02ED920056EAD8 /* SignalsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +538,7 @@
 				D7CCEEEE1E02B01300F188E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7CCEEEF1E02B01300F188E0 /* Build configuration list for PBXNativeTarget "TestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +547,7 @@
 				D7CCEEF11E02B01300F188E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7CCEEF21E02B01300F188E0 /* Build configuration list for PBXNativeTarget "TestAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +556,7 @@
 				D7CCEEF41E02B01300F188E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
