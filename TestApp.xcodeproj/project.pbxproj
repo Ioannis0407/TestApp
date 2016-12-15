@@ -10,6 +10,7 @@
 		D70104E41E02B8030056EAD8 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D70104E31E02B8030056EAD8 /* WebServices.m */; };
 		D70104E91E02ED920056EAD8 /* SignalsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D70104E71E02ED920056EAD8 /* SignalsTableViewCell.m */; };
 		D70104EA1E02ED920056EAD8 /* SignalsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D70104E81E02ED920056EAD8 /* SignalsTableViewCell.xib */; };
+		D7152D291E0302E100C19353 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D7152D281E0302E100C19353 /* MBProgressHUD.m */; };
 		D7CCEEC11E02B01300F188E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CCEEC01E02B01300F188E0 /* main.m */; };
 		D7CCEEC41E02B01300F188E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CCEEC31E02B01300F188E0 /* AppDelegate.m */; };
 		D7CCEEC71E02B01300F188E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CCEEC61E02B01300F188E0 /* ViewController.m */; };
@@ -45,6 +46,8 @@
 		D70104E61E02ED920056EAD8 /* SignalsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalsTableViewCell.h; sourceTree = "<group>"; };
 		D70104E71E02ED920056EAD8 /* SignalsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalsTableViewCell.m; sourceTree = "<group>"; };
 		D70104E81E02ED920056EAD8 /* SignalsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignalsTableViewCell.xib; sourceTree = "<group>"; };
+		D7152D271E0302E100C19353 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D7152D281E0302E100C19353 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D7CCEEBC1E02B01300F188E0 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CCEEC01E02B01300F188E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7CCEEC21E02B01300F188E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7152D2A1E0302EF00C19353 /* Third party */ = {
+			isa = PBXGroup;
+			children = (
+				D7152D271E0302E100C19353 /* MBProgressHUD.h */,
+				D7152D281E0302E100C19353 /* MBProgressHUD.m */,
+			);
+			name = "Third party";
+			sourceTree = "<group>";
+		};
 		D7CCEEB31E02B01300F188E0 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +124,7 @@
 		D7CCEEBE1E02B01300F188E0 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				D7152D2A1E0302EF00C19353 /* Third party */,
 				D7CCEEC21E02B01300F188E0 /* AppDelegate.h */,
 				D7CCEEC31E02B01300F188E0 /* AppDelegate.m */,
 				D7CCEEC51E02B01300F188E0 /* ViewController.h */,
@@ -301,6 +314,7 @@
 				D7CCEEC41E02B01300F188E0 /* AppDelegate.m in Sources */,
 				D7CCEEC11E02B01300F188E0 /* main.m in Sources */,
 				D70104E91E02ED920056EAD8 /* SignalsTableViewCell.m in Sources */,
+				D7152D291E0302E100C19353 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

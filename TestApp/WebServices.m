@@ -44,7 +44,8 @@
              NSLog(@"Server Response (we want to see a 200 return code) %@",response);
              NSLog(@"dictionary %@",dictionary);
              
-
+             
+             [self.delegate returnRatesWith:dictionary];
              
          }
          else if ([data length] == 0 && error == nil){

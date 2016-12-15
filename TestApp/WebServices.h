@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@protocol RatesReturn <NSObject>
+
+-(void) returnRatesWith:(NSDictionary*)dictionary;
+
+@end
 
 @interface WebServices : NSObject
+@property (nonatomic,weak) id<RatesReturn> delegate;
+
 -(void) getRates;
 
 @end

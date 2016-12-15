@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebServices.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,RatesReturn>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) id<RatesReturn> delegate;
 
 @end
 
