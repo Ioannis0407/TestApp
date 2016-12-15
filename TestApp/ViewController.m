@@ -18,6 +18,7 @@
 @implementation ViewController
 {
     NSMutableArray *data;
+    NSMutableArray *previousData;
     NSTimer *timer;
     WebServices *ws;
 }
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     data = [[NSMutableArray alloc]init];
+    previousData = [[NSMutableArray alloc]init];
     self.tableView.delegate =self;
     self.tableView.dataSource =self;
     [self.tableView registerNib:[UINib nibWithNibName:@"SignalsTableViewCell" bundle:nil]forCellReuseIdentifier:@"SignalsTableViewCell"];
@@ -35,7 +37,7 @@
     
     ws = [[WebServices alloc]init];
     ws.delegate =self;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self
+    timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self
                                            selector:@selector(getRates) userInfo:nil repeats:YES];
     //
   
@@ -43,7 +45,8 @@
 }
 -(void)getRates{
     
-      [ws getRates];
+    previousData = data;
+    [ws getRates];
 }
 
 
@@ -82,7 +85,54 @@
     cell.spreadLabel.text = [NSString stringWithFormat:@"%.1f",spread];
     
     
+    //sell rate values and colors
+    float currentValue =[[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue];
+    float previousValue =[[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue];
+    if(currentValue>previousValue){
+        cell.sellView.backgroundColor = [UIColor greenColor];
+    }
+    else  if(currentValue<previousValue){
+        cell.sellView.backgroundColor = [UIColor redColor];
+
+    }
+    NSString *sellValue =[NSString stringWithFormat:@"%f", [[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]*[[[data valueForKey:@"pipMultiplier"]objectAtIndex:indexPath.row]floatValue]];
     
+    NSString *fractionalPip = [[sellValue componentsSeparatedByString:@"."] lastObject];
+    NSString *fractionalPipOneDigit = [fractionalPip substringToIndex:1];
+    
+    NSString *highlightedValue=[[[sellValue componentsSeparatedByString:@"."] firstObject] substringFromIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length]-2];
+    
+    NSString *sellFractionValue = [[[sellValue componentsSeparatedByString:@"."] firstObject]  substringToIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length] - 2];
+    cell.sellRateLAbel.text = sellFractionValue;
+    cell.sellFractionalPipLabel.text =fractionalPipOneDigit;
+    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+    cell.sellHighlightPipLabel.attributedText =[[NSAttributedString alloc] initWithString:highlightedValue attributes:underlineAttribute];
+    
+    
+    //buy rates values and colors
+    if([[[data valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]>[[[previousData valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]){
+        cell.buyView.backgroundColor = [UIColor greenColor];
+    }
+    else  if([[[data valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]<[[[previousData valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]){
+        cell.buyView.backgroundColor = [UIColor redColor];
+        
+    }
+    
+    NSString *buyValue =[NSString stringWithFormat:@"%f", [[[data valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]*[[[data valueForKey:@"pipMultiplier"]objectAtIndex:indexPath.row]floatValue]];
+    
+    NSString *buyfractionalPip = [[buyValue componentsSeparatedByString:@"."] lastObject];
+   // NSString *fractionalPip = [[sellValue componentsSeparatedByString:@"."] lastObject];
+    NSString *buyfractionalPipOneDigit = [buyfractionalPip substringToIndex:1];
+    
+    NSString *buyhighlightedValue=[[[buyValue componentsSeparatedByString:@"."] firstObject] substringFromIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length]-2];
+    
+    NSString *buyFractionValue = [[[buyValue componentsSeparatedByString:@"."] firstObject]  substringToIndex:[[[buyValue componentsSeparatedByString:@"."] firstObject]  length] - 2];
+    cell.buyRateLabel.text = buyFractionValue;
+    cell.buyFractionalPip.text =buyfractionalPipOneDigit;
+    NSDictionary *buyunderlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+    cell.buyHighlightPipLabel.attributedText = [[NSAttributedString alloc] initWithString:buyhighlightedValue attributes:buyunderlineAttribute];
+    
+   
     return cell;
 }
 
@@ -95,6 +145,7 @@
         
         [data addObject:signal];
     }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];

@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *buyRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *buyHighlightPipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *buyFractionalPip;
+@property (weak, nonatomic) IBOutlet UIView *sellView;
+@property (weak, nonatomic) IBOutlet UIView *buyView;
 
 @end
