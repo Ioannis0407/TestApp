@@ -27,7 +27,7 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    data = [[NSMutableArray alloc]init];
+   
     previousData = [[NSMutableArray alloc]init];
     self.tableView.delegate =self;
     self.tableView.dataSource =self;
@@ -37,7 +37,7 @@
     
     ws = [[WebServices alloc]init];
     ws.delegate =self;
-    timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self
+    timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self
                                            selector:@selector(getRates) userInfo:nil repeats:YES];
     //
   
@@ -77,8 +77,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SignalsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SignalsTableViewCell" forIndexPath:indexPath];
+  
     
+    SignalsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SignalsTableViewCell" forIndexPath:indexPath];
+    if(!data){
+        return cell;
+    }
     cell.pairNameLabel.text = [[data valueForKey:@"name"]objectAtIndex:indexPath.row];
     
     float spread = ([[[data valueForKey:@"buy"]objectAtIndex:indexPath.row ] floatValue] - [[[data valueForKey:@"sell"]objectAtIndex:indexPath.row ] floatValue])*[[[data valueForKey:@"pipMultiplier"]objectAtIndex:indexPath.row ] floatValue];
@@ -88,12 +92,15 @@
     //sell rate values and colors
     float currentValue =[[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue];
     float previousValue =[[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue];
-    if(currentValue>previousValue){
+    if([[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]>[[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]){
         cell.sellView.backgroundColor = [UIColor greenColor];
     }
-    else  if(currentValue<previousValue){
+    else  if([[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]<[[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]){
         cell.sellView.backgroundColor = [UIColor redColor];
 
+    }
+    else if( [[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue] == [[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]){
+        cell.sellView.backgroundColor = [UIColor grayColor];
     }
     NSString *sellValue =[NSString stringWithFormat:@"%f", [[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]*[[[data valueForKey:@"pipMultiplier"]objectAtIndex:indexPath.row]floatValue]];
     
@@ -115,6 +122,11 @@
     }
     else  if([[[data valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]<[[[previousData valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]){
         cell.buyView.backgroundColor = [UIColor redColor];
+        
+    }
+    else if([[[data valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]==[[[previousData valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]) {
+        
+        cell.buyView.backgroundColor = [UIColor grayColor];
         
     }
     
@@ -139,13 +151,12 @@
 
 -(void)returnRatesWith:(NSDictionary *)dictionary{
     
-    
+     data = [[NSMutableArray alloc]init];
     for(id signal in dictionary){
         
         [data addObject:signal];
     }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
+   dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });

@@ -26,7 +26,7 @@
                                 <rect key="frame" x="8" y="8" width="145" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh1-Hz-aPa">
-                                        <rect key="frame" x="20" y="17" width="32" height="21"/>
+                                        <rect key="frame" x="8" y="17" width="44" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                 <constraints>
                                     <constraint firstItem="1eF-x5-c80" firstAttribute="leading" secondItem="mh1-Hz-aPa" secondAttribute="trailing" constant="8" symbolic="YES" id="4Fs-h7-0A1"/>
                                     <constraint firstItem="1eF-x5-c80" firstAttribute="centerX" secondItem="8aA-rI-g3L" secondAttribute="centerX" constant="3" id="4dy-id-DHb"/>
-                                    <constraint firstItem="mh1-Hz-aPa" firstAttribute="leading" secondItem="8aA-rI-g3L" secondAttribute="leading" constant="20" id="BKE-yT-twg"/>
+                                    <constraint firstItem="mh1-Hz-aPa" firstAttribute="leading" secondItem="8aA-rI-g3L" secondAttribute="leading" constant="8" id="BKE-yT-twg"/>
                                     <constraint firstAttribute="trailing" secondItem="fCX-2w-9dv" secondAttribute="trailing" constant="24" id="F4a-20-OFs"/>
                                     <constraint firstItem="fCX-2w-9dv" firstAttribute="top" secondItem="8aA-rI-g3L" secondAttribute="top" id="G8M-0s-lUv"/>
                                     <constraint firstItem="fCX-2w-9dv" firstAttribute="leading" secondItem="1eF-x5-c80" secondAttribute="trailing" constant="-6" id="UoE-8Y-GTr"/>
@@ -66,7 +66,7 @@
                                 <rect key="frame" x="167" y="8" width="145" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-a7-fL5">
-                                        <rect key="frame" x="15" y="17" width="32.5" height="21"/>
+                                        <rect key="frame" x="8" y="17" width="40" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                                     <constraint firstItem="pFn-eL-zxh" firstAttribute="leading" secondItem="TEN-QS-Xc5" secondAttribute="trailing" constant="-9" id="00U-yS-9gy"/>
                                     <constraint firstItem="pFn-eL-zxh" firstAttribute="top" secondItem="8oi-Bo-89d" secondAttribute="top" id="2OW-eW-43l"/>
                                     <constraint firstItem="TEN-QS-Xc5" firstAttribute="centerX" secondItem="8oi-Bo-89d" secondAttribute="centerX" id="Htz-Ub-vQF"/>
-                                    <constraint firstItem="OYs-a7-fL5" firstAttribute="leading" secondItem="8oi-Bo-89d" secondAttribute="leading" constant="15" id="Nnh-TR-1hh"/>
+                                    <constraint firstItem="OYs-a7-fL5" firstAttribute="leading" secondItem="8oi-Bo-89d" secondAttribute="leading" constant="8" id="Nnh-TR-1hh"/>
                                     <constraint firstItem="OYs-a7-fL5" firstAttribute="bottom" secondItem="8oi-Bo-89d" secondAttribute="bottomMargin" id="Tjn-ci-eYv"/>
                                     <constraint firstItem="TEN-QS-Xc5" firstAttribute="top" secondItem="8oi-Bo-89d" secondAttribute="topMargin" id="gCM-KK-TGt"/>
                                     <constraint firstItem="TEN-QS-Xc5" firstAttribute="leading" secondItem="OYs-a7-fL5" secondAttribute="trailing" constant="8" symbolic="YES" id="lC4-bg-Dew"/>

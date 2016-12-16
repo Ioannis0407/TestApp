@@ -17,23 +17,16 @@
     NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:url];
     [rq setHTTPMethod:@"POST"];
     [rq setValue:@"application/json" forHTTPHeaderField:@"content-type"];
-    // NSString *post = [NSString stringWithFormat:@"command1=c1&command2=c2"];
-    // NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding];
-   // deviceID = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceID"];
-    
-    //build an info object and convert to json
-    NSMutableDictionary *content = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"true",@"includeMultiplier",nil];
-    
-    //,@"password",deviceName,@"device_name",[[NSUserDefaults standardUserDefaults]valueForKey:@"FirebaseToken"],@"notif_token", nil];
+
+
     
     NSDictionary *newDatasetInfo = @{@"includeMultiplier":@"true"};
-    // @{@"foo": @"bar", @"baz": @[@"firstName", @"lastName", @"Email"]};
+   
     //convert object to data
     NSError *error;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:newDatasetInfo options:kNilOptions error:&error];
     [rq setHTTPBody:jsonData];
-   // [rq setHTTPBody:[newDatasetInfo dataUsingEncoding:NSUTF8StringEncoding]];
-//        [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     [NSURLConnection sendAsynchronousRequest:rq queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
