@@ -39,7 +39,7 @@
     ws.delegate =self;
     timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self
                                            selector:@selector(getRates) userInfo:nil repeats:YES];
-    //
+  
   
  
 }
@@ -90,8 +90,7 @@
     
     
     //sell rate values and colors
-    float currentValue =[[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue];
-    float previousValue =[[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue];
+    
     if([[[data valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]>[[[previousData valueForKey:@"sell"]objectAtIndex:indexPath.row]floatValue]){
         cell.sellView.backgroundColor = [UIColor greenColor];
     }
@@ -133,7 +132,7 @@
     NSString *buyValue =[NSString stringWithFormat:@"%f", [[[data valueForKey:@"buy"]objectAtIndex:indexPath.row]floatValue]*[[[data valueForKey:@"pipMultiplier"]objectAtIndex:indexPath.row]floatValue]];
     
     NSString *buyfractionalPip = [[buyValue componentsSeparatedByString:@"."] lastObject];
-   // NSString *fractionalPip = [[sellValue componentsSeparatedByString:@"."] lastObject];
+  
     NSString *buyfractionalPipOneDigit = [buyfractionalPip substringToIndex:1];
     
     NSString *buyhighlightedValue=[[[buyValue componentsSeparatedByString:@"."] firstObject] substringFromIndex:[[[sellValue componentsSeparatedByString:@"."] firstObject]  length]-2];
